@@ -1,0 +1,19 @@
+Read Me
+Environment :ubuntu lts14.0
+oracle java 7 jdk installed
+in Fusionfs Zht the three new classes are 
+Fusionwrap.java
+FusionWrap.h
+look for fusionfs.c  where we have added three jni methods
+
+calling fusion.c through FusionWrap we need to follow the following commands
+
+* javac FusionWrap.java
+* javah FusionWrap
+* gcc -fPIC -c Fusionfs.c -I  /usr/lib/jvm/java-7-oracle/include/
+* gcc FusionWrap.o -shared -o libttyutil.so -Wl,-soname,fusionwrap
+* export LD_LIBRARY_PATH=.
+* java FusionWrap
+
+
+
